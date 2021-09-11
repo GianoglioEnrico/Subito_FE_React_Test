@@ -16,9 +16,10 @@ function Step1(props) {
     setInputsToShow(event.target.value);
     setDoneIcon(false);
     setStep1Height("120px");
+    setStep2IsDisabled(true);
     // If the selected element is not the default value ("0")
     if (event.target.value !== "0") {
-      setStep1Height(120 + 80 * event.target.value + "px");
+      setStep1Height(120 + 60 * event.target.value + "px");
     }
 
     // if the selected element is the default value ("0")
@@ -44,13 +45,13 @@ function Step1(props) {
     if (filledInputs.length === Number(inputsToShow)) {
       setDoneIcon(true);
       setStep2IsDisabled(false);
-      setStep1Height("500px");
+      setStep1Height(parseInt(step1Height) + 60 + "px");
     }
     // if not all visible attendee inputs are filled
     else {
       setDoneIcon(false);
       setStep2IsDisabled(true);
-      setStep1Height(120 + inputsToShow * 80 + "px");
+      setStep1Height(120 + inputsToShow * 60 + "px");
     }
   };
   useEffect(() => {
