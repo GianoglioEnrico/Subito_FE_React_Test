@@ -1,4 +1,4 @@
-@media screen and (max-width: 990px) {
+@media only screen and (max-width: 600px) {
   form {
     flex-wrap: wrap;
   }
@@ -111,6 +111,7 @@ legend {
 select {
   border-radius: 5px;
   padding: 5px;
+  margin: 10px;
 }
 p {
   font-family: "Times New Roman", Times, serif;
@@ -127,4 +128,7 @@ p {
 .step1_result_ok {
   visibility: visible;
   top: 90%;
+}
+#submit_button {
+  margin: 10px;
 }

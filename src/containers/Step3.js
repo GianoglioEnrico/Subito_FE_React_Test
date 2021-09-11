@@ -23,8 +23,10 @@ function Step3(props) {
       style={{ opacity: step3IsDisabled ? 0.6 : 1 }}
     >
       <legend>Step 3</legend>
-      <label htmlFor="rock"> Are you ready to rock? </label>
-      <input type="checkbox" id="rock" onChange={handleCheckBox} />
+      <div>
+        <label htmlFor="rock"> Are you ready to rock? </label>
+        <input type="checkbox" id="rock" onChange={handleCheckBox} />
+      </div>
       <input
         type="submit"
         id="submit_button"
