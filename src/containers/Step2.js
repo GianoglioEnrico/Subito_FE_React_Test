@@ -22,15 +22,20 @@ function Step2(props) {
   );
 
   const handleCheckbox = (event) => {
+    // Company Name Handling
     if (event.target.name === "company_name_toggle_group") {
       setIsCompanyNameChecked(true);
+      // If you check "yes" then the Input for adding your company name gets displayed
       if (event.target.id === "company_name_toggle_on") {
         setShowCompanyNameInput(true);
       } else {
         setShowCompanyNameInput(false);
       }
-    } else {
+    }
+    // Special Accomodations Handling
+    else {
       setIsSpecialAccommodationsChecked(true);
+      // If you check "yes" then the Textarea for adding speacial accomodations gets displayed
       if (event.target.id === "special_accommodations_toggle_on") {
         setShowSpecialAccommodationsInput(true);
       } else {
@@ -45,6 +50,7 @@ function Step2(props) {
     setSpecialAccommodationsText(event.target.value);
   };
   useEffect(() => {
+    // If both the group are checked then the green check icon gets displayed
     if (!reset && isCompanyNameChecked && isSpecialAccommodationsChecked) {
       setStep3IsDisabled(false);
     } else if (reset) {

@@ -10,12 +10,15 @@ function App() {
   const [step3IsDisabled, setStep3IsDisabled] = useState(true);
 
   const [reset, setReset] = useState(false);
+
+  // This function gets triggered when at step3 user clicks: "complete form"
   const handleResetAll = (event) => {
     event.preventDefault();
     setStep2IsDisabled(true);
     setStep3IsDisabled(true);
     setReset(true);
   };
+
   return (
     <div id="page-wrap">
       <Title />

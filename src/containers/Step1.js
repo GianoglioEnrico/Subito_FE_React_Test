@@ -9,20 +9,27 @@ function Step1(props) {
   const [inputValues, setInputValues] = useState([]);
   const [step1Height, setStep1Height] = useState("120px");
   const select = document.querySelector("select");
+
+  // Select gets clicked
   const handleSelect = (event) => {
     setReset(false);
     setInputsToShow(event.target.value);
     setDoneIcon(false);
     setStep1Height("120px");
+    // If the selected element is not the default value ("0")
     if (event.target.value !== "0") {
       setStep1Height(120 + 80 * event.target.value + "px");
-    } else {
+    }
+
+    // if the selected element is the default value ("0")
+    else {
       inputValues.forEach((inputValue) => (inputValue.value = ""));
       setInputValues([]);
       setStep1Height("120px");
     }
   };
 
+  // User type in inputs
   const handleInputChange = (e) => {
     if (inputValues.length === 0) {
       inputValues.push(e.target);
@@ -33,12 +40,14 @@ function Step1(props) {
     const filledInputs = inputValues.filter(
       (inputValue) => inputValue.value !== ""
     );
-
+    // If all visible input fields are filled show green check
     if (filledInputs.length === Number(inputsToShow)) {
       setDoneIcon(true);
       setStep2IsDisabled(false);
       setStep1Height("500px");
-    } else {
+    }
+    // if not all visible attendee inputs are filled
+    else {
       setDoneIcon(false);
       setStep2IsDisabled(true);
       setStep1Height(120 + inputsToShow * 80 + "px");
